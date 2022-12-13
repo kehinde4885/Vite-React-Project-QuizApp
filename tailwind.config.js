@@ -9,6 +9,7 @@ module.exports = {
         'Shape2': '#FFFAD1',
         'blue': '#293264',
         'bg': '#d6dbf5',
+        'bg2': '#f5f7fb',
         'divider': '#dbdefo',
       },
       fontFamily: {
