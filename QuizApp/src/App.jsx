@@ -5,14 +5,7 @@ import Intro from './Intro'
 import Quiz from './Quiz'
 import Design from './Design'
 
-async function getQuiz(){
-  let questions = await fetch('https://the-trivia-api.com/api/questions?limit=1')
-  let question = await questions.json()
 
-  return question
-}
-
-let questions = await getQuiz()
 
 
 // Main Component
@@ -20,20 +13,35 @@ function App() {
 
   const [isClicked , changeStart] = useState(true)
 
-  //const [questions , changeQuestion] = useState(questions)
+  const [quiz,setQuiz] = useState([])
+
+  console.log(quiz)
+
 
   function handleClick(){
     changeStart(!isClicked)
+    getQuiz()
   }
 
+  
+  function getQuiz(){
+    fetch('https://the-trivia-api.com/api/questions?limit=1')
+    .then(res => res.json())
+    .then(data => {
+      setQuiz(data)
+      console.log('render, new quiz')
+    })
+  }
 
   return (
-    <div className="relative h-screen App bg-bg2">
+    <div className="relative z-[0] h-screen App bg-bg2">
       {isClicked &&  
       <Intro
        handleClick = {handleClick}/>}
 
-       {!isClicked && <Quiz/>}
+       {!isClicked && quiz.length ?
+       <Quiz
+       quiz={quiz}/> : ''}
 
       <Design/>
 
