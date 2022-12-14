@@ -1,34 +1,77 @@
 import { useEffect, useState } from "react"
 
+function getRandomNum(){
+  let array = Array(4)
+  console.log(Math.floor(Math.random() *4))
+
+  for(let i= 0; i < 4 ; i++){
+    console.log(1)
+    //array.push(Math.floor(Math.random *4))
+
+  }
+
+  //console.log(array)
+}
+
+
+
+//getRandomNum()
+
 export default function Quiz(props){
 
- console.log(props.quiz[0])
+let trivia = props.quiz
+
+let questions  = trivia.map(function(element){
+  //console.log(element)
+  const {question,incorrectAnswers,correctAnswer} = element
+
+  function reshuffleOptions(){
+    let array = [...incorrectAnswers , correctAnswer]
+    array.forEach(function(element,index){
+      // console.log(element)
+      // console.log(index)
+    })
+  }
+
+  reshuffleOptions()
+
+  return (
+    <>
+    <label className='font-bold'>{question}</label>
+      <div className='flex text-xs space-x-4'>
+        <input
+        type='button'
+        value='Adios'
+        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
+        </input>
+        <input
+        type='button'
+        value='Hola'
+        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
+        </input>
+        <input
+        type='button'
+        value='Au Revoir'
+        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
+        </input>
+        <input
+        type='button'
+        value='Salir'
+        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
+        </input>
+      </div>
+    </>  
+  )
+ })
 
 
     return(
-      <div className='quiz font-Karla text-blue'>
+      <form className='quiz font-Karla text-blue'>
         <div className='space-y-2'>
-          <p className='font-bold'>{props.quiz[0].question}</p>
-          <div className='flex text-xs space-x-4'>
-            <button
-            className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-              Adios
-            </button>
-            <button 
-            className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-              Hola
-            </button>
-            <button 
-            className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-              Au Revoir
-            </button>
-            <button 
-            className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-              Salir
-            </button>
-          </div>
+          
+
         </div>
-      </div>
+      </form>
     )
   }
   

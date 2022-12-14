@@ -15,7 +15,7 @@ function App() {
 
   const [quiz,setQuiz] = useState([])
 
-  console.log(quiz)
+  //console.log(quiz)
 
 
   function handleClick(){
