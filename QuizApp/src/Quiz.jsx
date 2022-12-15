@@ -1,77 +1,64 @@
 import { useEffect, useState } from "react"
 
 function getRandomNum(){
-  let array = Array(4)
-  console.log(Math.floor(Math.random() *4))
+  return Math.floor(Math.random() *4)
 
-  for(let i= 0; i < 4 ; i++){
-    console.log(1)
-    //array.push(Math.floor(Math.random *4))
-
-  }
-
-  //console.log(array)
 }
 
 
-
-//getRandomNum()
 
 export default function Quiz(props){
 
 let trivia = props.quiz
 
+//console.log(trivia)
+
+
 let questions  = trivia.map(function(element){
-  //console.log(element)
-  const {question,incorrectAnswers,correctAnswer} = element
 
-  function reshuffleOptions(){
-    let array = [...incorrectAnswers , correctAnswer]
-    array.forEach(function(element,index){
-      // console.log(element)
-      // console.log(index)
-    })
-  }
+  const {question,incorrectAnswers,correctAnswer,id} = element
 
-  reshuffleOptions()
+  let num = getRandomNum()
+
+  let options = [...incorrectAnswers]
+
+  options.splice(num,0,correctAnswer)
+
+  
+  let optionsArray = options.map(function(element,index,array){
+    //console.log(correctAnswer)
+
+    //console.log(element,index,array)
+    return (
+      <input 
+        key={index}
+        type='button'
+        value={element}
+        className='border-[1px]  border-deepblue px-4 py-1 rounded-lg'>
+      </input> 
+    )
+  })
 
   return (
-    <>
-    <label className='font-bold'>{question}</label>
+    <div key={id}>
+      <p className="font-bold">{question}</p>
       <div className='flex text-xs space-x-4'>
-        <input
-        type='button'
-        value='Adios'
-        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-        </input>
-        <input
-        type='button'
-        value='Hola'
-        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-        </input>
-        <input
-        type='button'
-        value='Au Revoir'
-        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-        </input>
-        <input
-        type='button'
-        value='Salir'
-        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
-        </input>
+        {optionsArray}
+       
+        
       </div>
-    </>  
+    </div>  
   )
- })
+})
 
 
     return(
       <form className='quiz font-Karla text-blue'>
-        <div className='space-y-2'>
-          
-
+        <div className='space-y-4'>
+          {questions}
         </div>
       </form>
     )
   }
+
   

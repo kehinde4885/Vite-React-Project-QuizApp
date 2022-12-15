@@ -25,7 +25,7 @@ function App() {
 
   
   function getQuiz(){
-    fetch('https://the-trivia-api.com/api/questions?limit=1')
+    fetch('https://the-trivia-api.com/api/questions?limit=5')
     .then(res => res.json())
     .then(data => {
       setQuiz(data)
@@ -33,6 +33,7 @@ function App() {
     })
   }
 
+  
   return (
     <div className="relative z-[0] h-screen App bg-bg2">
       {isClicked &&  
