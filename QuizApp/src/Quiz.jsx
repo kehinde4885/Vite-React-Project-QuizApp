@@ -34,10 +34,11 @@ let questions  = trivia.map(function(element){
         key={index}
         type='button'
         value={element}
-        className='border-[1px]  border-deepblue px-4 py-1 rounded-lg'>
+        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
       </input> 
     )
   })
+
 
   return (
     <div key={id}>
