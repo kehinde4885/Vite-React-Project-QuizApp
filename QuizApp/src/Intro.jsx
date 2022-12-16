@@ -3,7 +3,7 @@ import React from 'react'
 // Component
 export default function Intro(props){
 
-    function clicked(){
+    function loadQuiz(){
       props.handleClick()
     }
   
@@ -13,7 +13,7 @@ export default function Intro(props){
           <h1 className='text-[2rem] font-Karla font-semibold text-center text-blue'>
             Quizzical
             </h1>
-          <button onClick={clicked} className='
+          <button onClick={loadQuiz} className='
           bg-deepblue font-inter text-white px-14 py-4 rounded-2xl font-medium'>
             Start quiz
           </button>

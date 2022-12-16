@@ -15,10 +15,9 @@ function App() {
 
   const [quiz,setQuiz] = useState([])
 
-  //console.log(quiz)
 
 
-  function handleClick(){
+  function startQuiz(){
     changeStart(!isClicked)
     getQuiz()
   }
@@ -38,7 +37,7 @@ function App() {
     <div className="relative z-[0] h-screen App bg-bg2">
       {isClicked &&  
       <Intro
-       handleClick = {handleClick}/>}
+       handleClick = {startQuiz}/>}
 
        {!isClicked && quiz.length ?
        <Quiz
