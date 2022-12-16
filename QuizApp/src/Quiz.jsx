@@ -34,7 +34,7 @@ let questions  = trivia.map(function(element){
         key={index}
         type='button'
         value={element}
-        className='border-[1px] border-deepblue px-4 py-1 rounded-lg'>
+        className='border-[1px] border-deepblue px-4 py-1 rounded-lg my-2 mr-2'>
       </input> 
     )
   })
@@ -43,10 +43,9 @@ let questions  = trivia.map(function(element){
   return (
     <div key={id}>
       <p className="font-bold">{question}</p>
-      <div className='flex text-xs space-x-4'>
+      <div className='flex text-xs flex-wrap pb-2 border-b-2 border-divider'>
         {optionsArray}
-       
-        
+
       </div>
     </div>  
   )
@@ -54,10 +53,16 @@ let questions  = trivia.map(function(element){
 
 
     return(
-      <form className='quiz font-Karla text-blue'>
-        <div className='space-y-4'>
-          {questions}
+      <form className='quiz font-Karla text-blue h-full flex flex-col justify-around'>
+        <div className="grid grid-cols-10 content-center">
+          <div className='space-y-4 col-start-2 col-span-8'>
+            {questions}
+          </div>
         </div>
+        <button 
+        className='self-center bg-deepblue font-inter text-white px-14 py-4 rounded-2xl font-medium'>
+            Check Answers
+        </button>
       </form>
     )
   }

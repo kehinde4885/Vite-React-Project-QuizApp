@@ -15,7 +15,6 @@ module.exports = {
       fontFamily: {
         'Karla': 'Karla, sans-serif',
         'Inter': 'Inter, sans-serif'
-
       }
     },
   },
