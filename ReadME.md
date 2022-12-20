@@ -8,3 +8,12 @@ Storing the results of fetch requests effectively seems to be posing a Challenge
 
 Extra Credit
 -Catch Error of Fetching QUIZ and alert User
+-I can Probably promote some of the states , but that would be later, for now this MVP is enough
+-Need to Fix the issue of all Buttons being Disabled instead of only the wrong Answers
+-Validation to Ensure all 5 answers have been Selected(Although this doesnt seem to affect user Experience)
+
+Key Features
+-Visual Aid for Option Selection
+-Visual Aid for Right Answers
+-Total Number of Correct Answers
+-Restart Quiz

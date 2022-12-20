@@ -11,11 +11,21 @@ import Design from './Design'
 // Main Component
 function App() {
 
-  const [isClicked , changeStart] = useState(true)
+  const [isClicked,changeStart] = useState(false)
 
   const [quiz,setQuiz] = useState([])
 
 
+
+  function getQuiz(){
+      //console.log('reunning')
+      fetch('https://the-trivia-api.com/api/questions?limit=5')
+      .then(res => res.json())
+      .then(data => {
+        setQuiz(data)
+        console.log('render, new quiz')
+      })
+  } 
 
   function startQuiz(){
     changeStart(!isClicked)
@@ -23,25 +33,18 @@ function App() {
   }
 
   
-  function getQuiz(){
-    fetch('https://the-trivia-api.com/api/questions?limit=5')
-    .then(res => res.json())
-    .then(data => {
-      setQuiz(data)
-      console.log('render, new quiz')
-    })
-  }
 
   
   return (
     <div className="relative z-[0] h-screen App bg-bg2">
-      {isClicked &&  
+      {!isClicked &&  
       <Intro
        handleClick = {startQuiz}/>}
 
-       {!isClicked && quiz.length ?
+       {isClicked && quiz.length ?
        <Quiz
-       quiz={quiz}/> : ''}
+       quiz={quiz} 
+       startQuiz = {startQuiz}/> : ''}
 
       <Design/>
 
