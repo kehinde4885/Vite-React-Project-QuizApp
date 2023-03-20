@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./QuizApp/index.html","./QuizApp/src/App.jsx","./QuizApp/src/Quiz.jsx","./QuizApp/src/Design.jsx","./QuizApp/src/Intro.jsx"],
+  content: ["./QuizApp/index.html","./QuizApp/src/*.jsx"],
   theme: {
     extend: {
       colors:{
